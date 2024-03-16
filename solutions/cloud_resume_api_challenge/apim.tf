@@ -102,7 +102,7 @@ resource "azurerm_api_management_api_operation_policy" "api_operation_policy" {
 <policies>
     <inbound>
         <base />
-        <rate-limit calls="5" renewal-period="60" remaining-calls-variable-name="remainingCallsPerSubscription" />
+        <rate-limit calls="25" renewal-period="90" remaining-calls-variable-name="remainingCallsPerSubscription" />
         <set-backend-service id="apim-generated-policy" backend-id="${azurerm_api_management_backend.apim_backend.name}" />
     </inbound>
     <backend>
