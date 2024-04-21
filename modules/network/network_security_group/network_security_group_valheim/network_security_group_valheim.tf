@@ -80,6 +80,20 @@ resource "azurerm_network_security_rule" "nsg_rule_valheim_tcp" {
   network_security_group_name = azurerm_network_security_group.network_security_group.name
 }
 
+resource "azurerm_network_security_rule" "nsg_rule_winrm" {
+  name                        = "WinRM"
+  priority                    = 110
+  direction                   = "Inbound"
+  access                      = "Allow"
+  protocol                    = "Tcp"
+  source_port_range           = "*"
+  destination_port_range      = "5986"
+  source_address_prefix       = var.runner_ip_address
+  destination_address_prefix  = "*"
+  resource_group_name         = data.azurerm_resource_group.resource_group.name
+  network_security_group_name = azurerm_network_security_group.network_security_group.name
+}
+
 resource "azurerm_subnet_network_security_group_association" "network_security_group_association" {
   subnet_id                 = data.azurerm_subnet.subnet.id
   network_security_group_id = azurerm_network_security_group.network_security_group.id

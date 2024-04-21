@@ -37,3 +37,9 @@ variable "remote_ip_address" {
   type        = string
 }
 
+variable "runner_ip_address" {
+  description = "GitHub Runner IP address to allow through NSG"
+  type        = string
+  default     = ""
+}
+
