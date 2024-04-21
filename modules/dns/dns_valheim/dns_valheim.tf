@@ -6,7 +6,7 @@ resource "azurerm_dns_a_record" "dns_a_dev" {
   zone_name           = data.azurerm_dns_zone.dns_dev[count.index].name
   resource_group_name = data.azurerm_dns_zone.dns_dev[count.index].resource_group_name
   ttl                 = 300
-  records             = ["${data.azurerm_public_ip.vm_pip.ip_address}"]
+  records             = ["${data.azurerm_virtual_machine.virtual_machine.public_ip_address}"]
 }
 
 resource "azurerm_dns_a_record" "dns_a_prd" {
@@ -15,5 +15,5 @@ resource "azurerm_dns_a_record" "dns_a_prd" {
   zone_name           = data.azurerm_dns_zone.dns_prd[count.index].name
   resource_group_name = data.azurerm_dns_zone.dns_prd[count.index].resource_group_name
   ttl                 = 300
-  records             = ["${data.azurerm_public_ip.vm_pip.ip_address}"]
+  records             = ["${data.azurerm_virtual_machine.virtual_machine.public_ip_address}"]
 }

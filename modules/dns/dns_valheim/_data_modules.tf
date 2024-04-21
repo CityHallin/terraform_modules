@@ -19,8 +19,3 @@ data "azurerm_dns_zone" "dns_prd" {
   name                = var.dns_namespace
   resource_group_name = "core${var.environment}"
 }
-
-data "azurerm_public_ip" "vm_pip" {
-  name                = "${var.project}-${var.environment}-pip"
-  resource_group_name = data.azurerm_resource_group.resource_group.name
-}
