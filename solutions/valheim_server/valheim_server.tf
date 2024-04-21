@@ -74,7 +74,7 @@ module "dashboard_valheim" {
   project     = var.project
   environment = var.environment
   region      = var.region
-  depends_on  = [module.resource_group_default, module.virtual_machine_windows_default]
+  depends_on  = [module.resource_group_default, module.virtual_machine_windows_default, module.log_analytics_workspace_valheim]
 }
 
 module "automation_account_valheim" {

@@ -21,6 +21,6 @@ data "azurerm_dns_zone" "dns_prd" {
 }
 
 data "azurerm_public_ip" "vm_pip" {
-  name                = data.azurerm_virtual_machine.virtual_machine.name
+  name                = "${var.project}-${var.environment}-pip"
   resource_group_name = data.azurerm_resource_group.resource_group.name
 }
