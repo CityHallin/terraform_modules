@@ -121,19 +121,3 @@ resource "azurerm_automation_runbook" "runbook_restartvm" {
     uri = "https://raw.githubusercontent.com/CityHallin/valheim/main/azure/runbooks/restart_vm_by_tag.ps1"
   }
 }
-
-#Runbook VM backup
-resource "azurerm_automation_runbook" "runbook_backup" {
-  name                    = "BackupValheim"
-  location                = data.azurerm_resource_group.resource_group.location
-  resource_group_name     = data.azurerm_resource_group.resource_group.name
-  automation_account_name = azurerm_automation_account.automation_account.name
-  log_verbose             = false
-  log_progress            = true
-  description             = "Backup Valheim world"
-  runbook_type            = "PowerShell"
-
-  publish_content_link {
-    uri = "https://raw.githubusercontent.com/CityHallin/valheim/main/azure/runbooks/runbook_backup.ps1"
-  }
-}
