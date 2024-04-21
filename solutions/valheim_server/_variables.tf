@@ -113,3 +113,10 @@ variable "snet_address_range" {
   description = "Subnet address range"
   type        = list(any)
 }
+
+#Ansible
+variable "mod" {
+  description = "Flag to tell Ansible to make this a modded game server or not"
+  type        =string
+  default     = "no"
+}
