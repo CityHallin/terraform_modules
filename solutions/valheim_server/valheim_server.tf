@@ -49,6 +49,7 @@ module "network_security_group_valheim" {
   environment       = var.environment
   region            = var.region
   remote_ip_address = var.remote_ip_address
+  runner_ip_address = var.runner_ip_address
   depends_on        = [module.resource_group_default, module.default_virtual_network]
 }
 

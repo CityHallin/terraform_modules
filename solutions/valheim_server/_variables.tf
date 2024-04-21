@@ -97,6 +97,12 @@ variable "remote_ip_address" {
   type        = string
 }
 
+variable "runner_ip_address" {
+  description = "GitHub Runner IP address to allow through NSG"
+  type        = string
+  default     = ""
+}
+
 #DNS
 variable "dns_namespace" {
   description = "Namesapce of the DNS zone that will be used (i.e. example.com)"
@@ -112,11 +118,4 @@ variable "vnet_address_range" {
 variable "snet_address_range" {
   description = "Subnet address range"
   type        = list(any)
-}
-
-#Ansible
-variable "mod" {
-  description = "Flag to tell Ansible to make this a modded game server or not"
-  type        =string
-  default     = "no"
 }
