@@ -1,14 +1,14 @@
 
 #Valheim Server Solution
 module "resource_group_default" {
-  source      = "../../modules/resource_group/resource_group_default"
+  source      = "github.com/CityHallin/terraform_modules/modules/resource_group/resource_group_default"
   project     = var.project
   environment = var.environment
   region      = var.region
 }
 
 module "default_virtual_network" {
-  source             = "../../modules/network/virtual_network/virtual_network_default"
+  source             = "github.com/CityHallin/terraform_modules/modules/network/virtual_network/virtual_network_default"
   project            = var.project
   environment        = var.environment
   region             = var.region
@@ -18,7 +18,7 @@ module "default_virtual_network" {
 }
 
 module "storage_account_valheim" {
-  source      = "../../modules/storage/storage_account/storage_account_valheim"
+  source      = "github.com/CityHallin/terraform_modules/modules/storage/storage_account/storage_account_valheim"
   project     = var.project
   environment = var.environment
   region      = var.region
@@ -26,7 +26,7 @@ module "storage_account_valheim" {
 }
 
 module "virtual_machine_windows_default" {
-  source                = "../../modules/compute/virtual_machine/virtual_machine_windows_default"
+  source                = "github.com/CityHallin/terraform_modules/modules/compute/virtual_machine/virtual_machine_windows_default"
   project               = var.project
   environment           = var.environment
   region                = var.region
@@ -44,7 +44,7 @@ module "virtual_machine_windows_default" {
 }
 
 module "network_security_group_valheim" {
-  source            = "../../modules/network/network_security_group/network_security_group_valheim"
+  source            = "github.com/CityHallin/terraform_modules/modules/network/network_security_group/network_security_group_valheim"
   project           = var.project
   environment       = var.environment
   region            = var.region
@@ -53,7 +53,7 @@ module "network_security_group_valheim" {
 }
 
 module "log_analytics_workspace_valheim" {
-  source      = "../../modules/monitor/log_analytics_workspace/log_analytics_workspace_valheim"
+  source      = "github.com/CityHallin/terraform_modules/modules/monitor/log_analytics_workspace/log_analytics_workspace_valheim"
   project     = var.project
   environment = var.environment
   region      = var.region
@@ -61,7 +61,7 @@ module "log_analytics_workspace_valheim" {
 }
 
 module "dns_valheim" {
-  source        = "../../modules/dns/dns_valheim"
+  source        = "github.com/CityHallin/terraform_modules/modules/dns/dns_valheim"
   project       = var.project
   environment   = var.environment
   region        = var.region
@@ -70,7 +70,7 @@ module "dns_valheim" {
 }
 
 module "dashboard_valheim" {
-  source      = "../../modules/dashboard/dashboard_valheim"
+  source      = "github.com/CityHallin/terraform_modules/modules/dashboard/dashboard_valheim"
   project     = var.project
   environment = var.environment
   region      = var.region
@@ -78,7 +78,7 @@ module "dashboard_valheim" {
 }
 
 module "automation_account_valheim" {
-  source      = "../../modules/automation_account/automation_account_valheim"
+  source      = "github.com/CityHallin/terraform_modules/modules/automation_account/automation_account_valheim"
   project     = var.project
   environment = var.environment
   region      = var.region
