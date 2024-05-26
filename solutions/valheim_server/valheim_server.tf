@@ -88,7 +88,7 @@ module "application_insights_valheim" {
 
 
 module "function_valheim_start_vm" {
-  source      = "github.com/CityHallin/terraform_modules/modules/function_app/windows/valheim/start_vm"
+  source      = "github.com/CityHallin/terraform_modules/modules/function_app/windows/valheim/power_functions"
   project     = var.project
   environment = var.environment
   region      = var.region
