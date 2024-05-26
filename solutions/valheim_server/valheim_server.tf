@@ -78,11 +78,20 @@ module "dashboard_valheim" {
   depends_on  = [module.resource_group_default, module.virtual_machine_windows_default, module.log_analytics_workspace_valheim]
 }
 
-module "automation_account_valheim" {
-  source      = "github.com/CityHallin/terraform_modules/modules/automation_account/automation_account_valheim"
+module "application_insights_valheim" {
+  source      = "github.com/CityHallin/terraform_modules/modules/application_insights/application_insights_valheim"
   project     = var.project
   environment = var.environment
   region      = var.region
-  depends_on  = [module.resource_group_default, module.virtual_machine_windows_default]
+  depends_on  = [module.resource_group_default, module.log_analytics_workspace_valheim]
+}
+
+
+module "function_valheim_start_vm" {
+  source      = "github.com/CityHallin/terraform_modules/modules/function_app/windows/valheim/start_vm"
+  project     = var.project
+  environment = var.environment
+  region      = var.region
+  depends_on  = [module.resource_group_default, module.storage_account_valheim, module.application_insights_valheim, module.virtual_machine_windows_default]
 }
 
