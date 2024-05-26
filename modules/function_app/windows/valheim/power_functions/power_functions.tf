@@ -66,7 +66,7 @@ resource "azurerm_windows_function_app" "windows_function_app" {
 }
 
 #Function App Identity Key Vault RBAC
-resource "azurerm_role_assignment" "rbac_key_vault_functionapp" {
+resource "azurerm_role_assignment" "rbac_vm_functionapp" {
   scope                = data.azurerm_virtual_machine.virtual_machine.id
   role_definition_name = "Virtual Machine Contributor"
   principal_id         = azurerm_windows_function_app.windows_function_app.identity.0.principal_id
