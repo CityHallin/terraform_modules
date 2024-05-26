@@ -1,8 +1,8 @@
 #Prep ZIP file function Deployment
 data "archive_file" "compress_function_files" {
   type        = "zip"
-  source_dir  = "../function"
-  output_path = "../files/function.zip"
+  source_dir  = "D:/repos/terraform_modules/modules/function_app/windows/valheim/power_functions/function"
+  output_path = "./function.zip"
 }
 
 #App Service Plan
