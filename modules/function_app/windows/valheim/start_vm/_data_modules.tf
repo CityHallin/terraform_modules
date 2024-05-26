@@ -13,11 +13,6 @@ data "azurerm_storage_account" "storage_account" {
   resource_group_name = data.azurerm_resource_group.resource_group.name
 }
 
-data "azurerm_log_analytics_workspace" "log_analytics_workspace" {
-  name                = "${var.project}-${var.environment}-law"
-  resource_group_name = data.azurerm_resource_group.resource_group.name
-}
-
 data "azurerm_application_insights" "application_insights" {
   name                = "${var.project}-${var.environment}-ai"
   resource_group_name = data.azurerm_resource_group.resource_group.name
