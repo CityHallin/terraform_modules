@@ -82,7 +82,6 @@ module "application_insights_valheim" {
   source      = "github.com/CityHallin/terraform_modules/modules/application_insights/application_insights_valheim"
   project     = var.project
   environment = var.environment
-  region      = var.region
   depends_on  = [module.resource_group_default, module.log_analytics_workspace_valheim]
 }
 
